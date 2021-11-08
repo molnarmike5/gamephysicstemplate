@@ -1,6 +1,7 @@
 ﻿  MassSpringSystemSimulator.cpp
 C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\vectorbase.h(11,1): warning C4005: 'NOMINMAX': macro redefinition
 C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp : message : see previous definition of 'NOMINMAX'
+C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp(64,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\vectorbase.h(204,36): warning C4244: 'argument': conversion from 'const Scalar' to 'float', possible loss of data
           with
           [

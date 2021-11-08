@@ -57,6 +57,11 @@ public:
 		m_iIntegrator = integrator;
 	}
 
+	// Addtional Functions
+	void calculateElasticForces();
+	void calculate_Positions_Euler(float timeStep);
+	void calculate_Velocity_Euler(float timeStep);
+
 private:
 	// Data Attributes
 	float m_fMass = 0;
