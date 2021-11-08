@@ -8,12 +8,20 @@
 #define MIDPOINT 2
 // Do Not Change
 
-class Point {
+struct Point {
 	Vec3 m_position;
 	Vec3 m_velocity;
+	Vec3 m_force;
 	bool m_isFixed;
-public:
-	Point(Vec3 position, Vec3 velocity, bool isFixed);
+	Point(Vec3 position, Vec3 velocity,Vec3 force, bool isFixed);
+};
+
+struct Spring {
+	int m_point1;
+	int m_point2;
+	float m_initialLength;
+	float m_currentLength;
+	Spring(int point1, int point2, float initialLength, float currentLength);
 };
 
 class MassSpringSystemSimulator :public Simulator {
@@ -51,12 +59,12 @@ public:
 
 private:
 	// Data Attributes
-	float m_fMass;
-	float m_fStiffness;
-	float m_fDamping;
-	int m_iIntegrator;
+	float m_fMass = 0;
+	float m_fStiffness = 0;
+	float m_fDamping = 0;
+	int m_iIntegrator = 0;
 	std::vector<Point> m_massPoints;
-	//std::vector<Spring> m_springs;
+	std::vector<Spring> m_springs;
 
 	// UI Attributes
 	Vec3 m_externalForce;
