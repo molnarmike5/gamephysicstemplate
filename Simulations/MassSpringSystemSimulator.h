@@ -8,15 +8,22 @@
 #define MIDPOINT 2
 // Do Not Change
 
+class Point {
+	Vec3 m_position;
+	Vec3 m_velocity;
+	bool m_isFixed;
+public:
+	Point(Vec3 position, Vec3 velocity, bool isFixed);
+};
 
-class MassSpringSystemSimulator:public Simulator{
+class MassSpringSystemSimulator :public Simulator {
 public:
 	// Construtors
 	MassSpringSystemSimulator();
-	
+
 	// UI Functions
-	const char * getTestCasesStr();
-	void initUI(DrawingUtilitiesClass * DUC);
+	const char* getTestCasesStr();
+	void initUI(DrawingUtilitiesClass* DUC);
 	void reset();
 	void drawFrame(ID3D11DeviceContext* pd3dImmediateContext);
 	void notifyCaseChanged(int testCase);
@@ -36,7 +43,7 @@ public:
 	Vec3 getPositionOfMassPoint(int index);
 	Vec3 getVelocityOfMassPoint(int index);
 	void applyExternalForce(Vec3 force);
-	
+
 	// Do Not Change
 	void setIntegrator(int integrator) {
 		m_iIntegrator = integrator;
@@ -48,6 +55,8 @@ private:
 	float m_fStiffness;
 	float m_fDamping;
 	int m_iIntegrator;
+	std::vector<Point> m_massPoints;
+	//std::vector<Spring> m_springs;
 
 	// UI Attributes
 	Vec3 m_externalForce;
