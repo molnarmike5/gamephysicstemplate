@@ -5,6 +5,7 @@
 #include <random>
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <d3d11.h>
 #include <iostream>
 #include "util/vectorbase.h"
 #include "DrawingUtilitiesClass.h"

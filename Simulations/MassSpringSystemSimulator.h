@@ -1,5 +1,7 @@
 #ifndef MASSSPRINGSYSTEMSIMULATOR_h
 #define MASSSPRINGSYSTEMSIMULATOR_h
+#include <d3d11.h>
+
 #include "Simulator.h"
 
 // Do Not Change
