@@ -9,7 +9,30 @@ Spring::Spring(int point1, int point2, float initialLength, float currentLength)
 
 MassSpringSystemSimulator::MassSpringSystemSimulator() : m_massPoints{}, m_springs{}
 {
-
+	int p0 = addMassPoint(Vec3(0, 0, 0), Vec3(0, 0, 0), false);
+	int p1 = addMassPoint(Vec3(0, 0.5, 0), Vec3(0, -1, 0), false);
+	int p2 = addMassPoint(Vec3(0.25, 1, 1), Vec3(1, -1, 1), true);
+	int p3 = addMassPoint(Vec3(0.75, 0.5, 0), Vec3(0, -1, 2), false);
+	int p4 = addMassPoint(Vec3(2, 0.5, 0), Vec3(0, -1, 0), false);
+	int p5 = addMassPoint(Vec3(1, 1, 1), Vec3(1, 0, 1), false);
+	int p6 = addMassPoint(Vec3(0, 0.5, 0.25), Vec3(-1, -1, 0), false);
+	int p7 = addMassPoint(Vec3(1, 0.5, 1), Vec3(1, 1, 1), false);
+	int p8 = addMassPoint(Vec3(0.5, 0.5, 0.5), Vec3(0.5, 0.5, 0.5), false);
+	int p9 = addMassPoint(Vec3(0.75, 0.75, 0.75), Vec3(0.5, -1.5, 0), false);
+	int p10 = addMassPoint(Vec3(0.25, 0.25, 0.25), Vec3(0.25, -1, 0.5), false);
+	addSpring(p0, p1, 1);
+	addSpring(p0, p5, 3);
+	addSpring(p7, p1, 6);
+	addSpring(p5, p3, 5);
+	addSpring(p2, p4, 2);
+	addSpring(p2, p3, 1);
+	addSpring(p2, p8, 2);
+	addSpring(p9, p8, 4);
+	addSpring(p1, p2, 1);
+	addSpring(p4, p7, 1);
+	addSpring(p4, p9, 3);
+	setStiffness(40);
+	setMass(10);
 }
 
 const char* MassSpringSystemSimulator::getTestCasesStr()
@@ -53,17 +76,59 @@ void MassSpringSystemSimulator::externalForcesCalculations(float timeElapsed)
 }
 
 void MassSpringSystemSimulator::simulateTimestep(float timeStep) {
-	for (auto& p : m_massPoints) {
-		p.m_force = 0;
+
+	switch (m_iIntegrator) {
+	case EULER:
+		calculateElasticForces();
+		calculate_Positions_Euler(timeStep);
+		calculate_Velocity_Euler(timeStep);
+		break;
+	case MIDPOINT:
+		calculate_Positions_Euler(timeStep / 2);
+		calculateElasticForces();
+		calculate_Velocity_Euler(timeStep / 2);
+		calculate_Positions_Euler(timeStep / 2);
+		calculateElasticForces();
+		calculate_Velocity_Euler(timeStep / 2);
+		break;
 	}
-	calculateElasticForces();
-	calculate_Positions_Euler(timeStep);
-	calculate_Velocity_Euler(timeStep);
+
+
+	// Update spring lengths
 	for (auto& spring : m_springs) {
 		auto vector = m_massPoints[spring.m_point1].m_position - m_massPoints[spring.m_point2].m_position;
 		spring.m_currentLength = sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
 	}
 }
+
+void MassSpringSystemSimulator::calculateElasticForces() {
+	// Set forces to 0
+	for (auto& p : m_massPoints) {
+		p.m_force = 0;
+	}
+	for (auto& spring : m_springs) {
+		Point* p1 = &m_massPoints[spring.m_point1];
+		Point* p2 = &m_massPoints[spring.m_point2];
+		auto force = m_fStiffness * (spring.m_currentLength - spring.m_initialLength) * (p1->m_position - p2->m_position) / spring.m_currentLength;
+		p1->m_force -= force;
+		p2->m_force += force;
+	}
+}
+
+void MassSpringSystemSimulator::calculate_Positions_Euler(float timeStep) {
+	for (auto& point : m_massPoints) {
+		if (!point.m_isFixed)
+			point.m_position = point.m_position + timeStep * point.m_velocity;
+	}
+}
+
+void MassSpringSystemSimulator::calculate_Velocity_Euler(float timeStep) {
+	for (auto& point : m_massPoints) {
+		if (!point.m_isFixed)
+			point.m_velocity = point.m_velocity + timeStep * point.m_force / m_fMass;
+	}
+}
+
 
 void MassSpringSystemSimulator::onClick(int x, int y)
 {
@@ -120,26 +185,5 @@ void MassSpringSystemSimulator::applyExternalForce(Vec3 force) {
 	}
 }
 
-void MassSpringSystemSimulator::calculateElasticForces() {
-	for (auto& spring : m_springs) {
-		Point* p1 = &m_massPoints[spring.m_point1];
-		Point* p2 = &m_massPoints[spring.m_point2];
-		auto force = m_fStiffness * (spring.m_currentLength - spring.m_initialLength) * (p1->m_position - p2->m_position) / spring.m_currentLength;
-		p1->m_force -= force;
-		p2->m_force += force;
-	}
-}
-
-void MassSpringSystemSimulator::calculate_Positions_Euler(float timeStep) {
-	for (auto& point : m_massPoints) {
-		point.m_position = point.m_position + timeStep * point.m_velocity;
-	}
-}
-
-void MassSpringSystemSimulator::calculate_Velocity_Euler(float timeStep){
-	for (auto& point : m_massPoints) {
-		point.m_velocity = point.m_velocity + timeStep * point.m_force/m_fMass;
-	}
-}
 
 

@@ -1,104 +1,104 @@
 ﻿  MassSpringSystemSimulator.cpp
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\vectorbase.h(11,1): warning C4005: 'NOMINMAX': macro redefinition
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp : message : see previous definition of 'NOMINMAX'
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp(64,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\vectorbase.h(204,36): warning C4244: 'argument': conversion from 'const Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\vectorbase.h(11,1): warning C4005: 'NOMINMAX': macro redefinition
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp : message : see previous definition of 'NOMINMAX'
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp(100,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\vectorbase.h(204,36): warning C4244: 'argument': conversion from 'const Scalar' to 'float', possible loss of data
           with
           [
               Scalar=GamePhysics::Real
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\vectorbase.h(203): message : while compiling class template member function 'DirectX::XMVECTOR GamePhysics::vector3Dim<GamePhysics::Real>::toDirectXVector(void) const'
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(285): message : see reference to function template instantiation 'DirectX::XMVECTOR GamePhysics::vector3Dim<GamePhysics::Real>::toDirectXVector(void) const' being compiled
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\vectorbase.h(859): message : see reference to class template instantiation 'GamePhysics::vector3Dim<GamePhysics::Real>' being compiled
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\vectorbase.h(204,34): warning C4244: 'argument': conversion from 'const Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\vectorbase.h(203): message : while compiling class template member function 'DirectX::XMVECTOR GamePhysics::vector3Dim<GamePhysics::Real>::toDirectXVector(void) const'
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(285): message : see reference to function template instantiation 'DirectX::XMVECTOR GamePhysics::vector3Dim<GamePhysics::Real>::toDirectXVector(void) const' being compiled
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\vectorbase.h(859): message : see reference to class template instantiation 'GamePhysics::vector3Dim<GamePhysics::Real>' being compiled
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\vectorbase.h(204,34): warning C4244: 'argument': conversion from 'const Scalar' to 'float', possible loss of data
           with
           [
               Scalar=GamePhysics::Real
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\vectorbase.h(204,32): warning C4244: 'argument': conversion from 'const Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\vectorbase.h(204,32): warning C4244: 'argument': conversion from 'const Scalar' to 'float', possible loss of data
           with
           [
               Scalar=GamePhysics::Real
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(777,79): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(777,79): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(773): message : while compiling class template member function 'DirectX::XMMATRIX GamePhysics::matrix4x4<double>::toDirectXMatrix(void)'
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(380): message : see reference to function template instantiation 'DirectX::XMMATRIX GamePhysics::matrix4x4<double>::toDirectXMatrix(void)' being compiled
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(379): message : see reference to class template instantiation 'GamePhysics::matrix4x4<double>' being compiled
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(777,61): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(773): message : while compiling class template member function 'DirectX::XMMATRIX GamePhysics::matrix4x4<double>::toDirectXMatrix(void)'
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(380): message : see reference to function template instantiation 'DirectX::XMMATRIX GamePhysics::matrix4x4<double>::toDirectXMatrix(void)' being compiled
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(379): message : see reference to class template instantiation 'GamePhysics::matrix4x4<double>' being compiled
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(777,61): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(777,43): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(777,43): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(777,25): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(777,25): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(776,79): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(776,79): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(776,61): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(776,61): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(776,43): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(776,43): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(776,25): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(776,25): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(775,79): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(775,79): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(775,61): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(775,61): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(775,43): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(775,43): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(775,25): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(775,25): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(774,97): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(774,97): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(774,79): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(774,79): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(774,61): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(774,61): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double
           ]
-C:\Users\bamib\source\repos\gamephysicstemplate\Simulations\util\matrixbase.h(774,43): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
+C:\Users\bamib\Source\Repos\gamephysicstemplate\Simulations\util\matrixbase.h(774,43): warning C4244: 'argument': conversion from 'Scalar' to 'float', possible loss of data
           with
           [
               Scalar=double

@@ -372,12 +372,16 @@ int main(int argc, char* argv[])
 	//g_pSimulator= new SPHSystemSimulator();
 #endif
 	g_pSimulator->reset();
-	simulator->setMass(10.0f);
-	simulator->setStiffness(40);
+	/*
+	* simulator->setMass(10.0f);
+	simulator->setStiffness(400.0f);
 	auto p1 = simulator->addMassPoint(Vec3{ 0,0,0 }, Vec3{ -1,0,0 }, false);
 	auto p2 = simulator->addMassPoint(Vec3{ 0,2,0 }, Vec3{ 1,0,0 }, false);
+	auto p2 = simulator->addMassPoint(Vec3{ 0,-2,0 }, Vec3{ 1,0,0 }, false);
 	simulator->addSpring(p1, p2, 1);
-
+	*/
+	
+	simulator->setIntegrator(MIDPOINT);
 
     // Init DXUT and create device
 	DXUTInit( true, true, NULL ); // Parse the command line, show msgboxes on error, no extra command line params
