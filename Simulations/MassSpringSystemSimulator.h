@@ -13,6 +13,8 @@ struct Point {
 	Vec3 m_velocity;
 	Vec3 m_force;
 	bool m_isFixed;
+	Vec3 m_ptemp;
+	Vec3 m_vtemp;
 	Point(Vec3 position, Vec3 velocity,Vec3 force, bool isFixed);
 };
 
@@ -58,9 +60,12 @@ public:
 	}
 
 	// Addtional Functions
-	void calculateElasticForces();
+	void calculateElasticForces(bool tmp);
 	void calculate_Positions_Euler(float timeStep);
 	void calculate_Velocity_Euler(float timeStep);
+	void calculate_Positions_Mid(float timeStep, bool tmp);
+	void calculate_Velocity_Mid(float timeStep, bool tmp);
+	void init();
 
 private:
 	// Data Attributes

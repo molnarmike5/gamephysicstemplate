@@ -1,0 +1,1 @@
+C:\Users\bamib\Source\Repos\gamephysicstemplate\SimulatorTester\Win32\Debug\SimulatorTester_2017.vcxproj.AssemblyReference.cache
