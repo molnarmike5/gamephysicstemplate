@@ -1,9 +1,9 @@
-﻿FXC : warning X4717: Effects deprecated for D3DCompiler_47
-  
-  compilation object save succeeded; see D:\physics\gamephysicstemplate\Win32\Debug\effect.fxo
-  TemplateSimulator.cpp
+﻿  MassSpringSystemSimulator.cpp
 D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(11,1): warning C4005: "NOMINMAX": Makro-Neudefinition
-D:\physics\gamephysicstemplate\Simulations\TemplateSimulator.cpp : message : Siehe vorherige Definition von "NOMINMAX"
+D:\physics\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp : message : Siehe vorherige Definition von "NOMINMAX"
+D:\physics\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp(198,16): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+D:\physics\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp(254,20): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+D:\physics\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp(277,16): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
 D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(204,36): warning C4244: "Argument": Konvertierung von "const Scalar" in "float", möglicher Datenverlust
           with
           [
@@ -105,7 +105,6 @@ D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,43): warning C4
           [
               Scalar=double
           ]
-  FFmpeg.cpp
-  util.cpp
-  Code wird generiert...
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(1092,2): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\physics\gamephysicstemplate\Simulations\MassSpringSystemSimulator.cpp(179): message : Siehe Verweis auf die gerade kompilierte Instanziierung "std::ostream &GamePhysics::operator <<<GamePhysics::Real>(std::ostream &,const GamePhysics::vector3Dim<GamePhysics::Real> &)" der Funktions-Vorlage.
   Demo_2017.vcxproj -> D:\physics\gamephysicstemplate\Win32\Debug\Simulations.lib

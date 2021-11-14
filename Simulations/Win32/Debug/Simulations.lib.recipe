@@ -11,9 +11,5 @@
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />
-  <NonRecipeFileRefs>
-    <NonRecipeFileRef>
-      <FullPath>D:\physics\gamephysicstemplate\DirectXTK\MakeSpriteFont\MakeSpriteFont.csproj</FullPath>
-    </NonRecipeFileRef>
-  </NonRecipeFileRefs>
+  <NonRecipeFileRefs />
 </Project>

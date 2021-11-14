@@ -21,7 +21,7 @@ using namespace GamePhysics;
 //#define ADAPTIVESTEP
 
 #define TEMPLATE_DEMO
-//#define MASS_SPRING_SYSTEM
+#define MASS_SPRING_SYSTEM
 //#define RIGID_BODY_SYSTEM
 //#define SPH_SYSTEM
 
@@ -362,7 +362,14 @@ int main(int argc, char* argv[])
 	g_pSimulator= new TemplateSimulator();
 #endif
 #ifdef MASS_SPRING_SYSTEM
-	g_pSimulator= new MassSpringSystemSimulator();
+	//You can define Gravity in the costructor scope, if you want mr tutor (in Vec3)
+	//Did not implement reset function, because did'nt know which function ist invoked by the button in the UI
+	auto* gSimulator = new MassSpringSystemSimulator();
+	g_pSimulator = gSimulator;
+	//Initiator for Demo2 and Demo3 (interactively changeable)
+	//gSimulator->init_Demo2and3();
+	//Initiator for Demo4
+	gSimulator->init_Demo4();
 #endif
 #ifdef RIGID_BODY_SYSTEM
 	//g_pSimulator= new RigidBodySystemSimulator();
