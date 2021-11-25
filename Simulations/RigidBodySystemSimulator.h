@@ -3,7 +3,6 @@
 
 #include <array>
 #include "d3d11.h"
-#include "SimpleMath.h"
 #include "Simulator.h"
 //add your header for your rigid body system, for e.g.,
 //#include "rigidBodySystem.h" 
@@ -46,6 +45,7 @@ private:
 	
 	struct MassPoint
 	{
+		MassPoint() { MassPoint(Vec3()); }
 		MassPoint(Vec3 pos) :
 			position(pos) {}
 
@@ -54,26 +54,37 @@ private:
 	
 	struct RigidBody
 	{
-		static std::array<MassPoint, 8> calc_points(Vec3 box_center, Vec3 size);
+		std::array<MassPoint, 8> calc_points();
+		Mat4f calc_inertia_tensor_0();
 		
-		RigidBody(Vec3 initialOrientation, Vec3 box_center, Vec3 size, float mass) :
-			points(),
-			orientation(SimpleMath::Quaternion<float>(initialOrientation.x, initialOrientation.y, initialOrientation.z, 0.0)),
-			box_center(box_center),
+		RigidBody(Vec3 initialOrientation, Vec3 position, Vec3 size, float mass) :
+			orientation(Quat<float>(initialOrientation.x, initialOrientation.y, initialOrientation.z, 0.0)),
+			position(position),
 			size(size),
-			mass(mass) { points = calc_points(box_center, size); }
+			mass(mass)
+		{
+			points = calc_points();
+
+			inertia_tensor_0 = calc_inertia_tensor_0();
+		}
 
 		std::array<MassPoint, 8>	points;
-		Quaternion<float>			orientation;
-		Vec3						box_center;
+		Quat<float>					orientation;
+		Vec3						position;
 		Vec3						size;
-		float						mass;
+		Vec3						linear_velocity;
+		Vec3						angular_velocity;
+		Vec3						angular_momentum;
+		Mat4f						inertia_tensor_0;
+		int							mass;
 	};
   
 	Point2D m_mouse;
 	Point2D m_trackmouse;
 	Point2D m_oldtrackmouse;
 
+	vector<RigidBody>      rigid_bodies_;
+	
 	};
 
 #endif
