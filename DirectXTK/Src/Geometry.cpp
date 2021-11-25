@@ -13,6 +13,7 @@
 
 #include "pch.h"
 #include "Geometry.h"
+#include <stdexcept>
 #include "Bezier.h"
 
 using namespace DirectX;

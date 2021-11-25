@@ -1,5 +1,9 @@
 #ifndef RIGIDBODYSYSTEMSIMULATOR_h
 #define RIGIDBODYSYSTEMSIMULATOR_h
+
+#include <array>
+#include "d3d11.h"
+#include "SimpleMath.h"
 #include "Simulator.h"
 //add your header for your rigid body system, for e.g.,
 //#include "rigidBodySystem.h" 
@@ -32,15 +36,44 @@ public:
 	void setOrientationOf(int i,Quat orientation);
 	void setVelocityOf(int i, Vec3 velocity);
 
+
 private:
 	// Attributes
 	// add your RigidBodySystem data members, for e.g.,
 	// RigidBodySystem * m_pRigidBodySystem; 
 	Vec3 m_externalForce;
 
-	// UI Attributes
+	
+	struct MassPoint
+	{
+		MassPoint(Vec3 pos) :
+			position(pos) {}
+
+		Vec3	position;
+	};
+	
+	struct RigidBody
+	{
+		static std::array<MassPoint, 8> calc_points(Vec3 box_center, Vec3 size);
+		
+		RigidBody(Vec3 initialOrientation, Vec3 box_center, Vec3 size, float mass) :
+			points(),
+			orientation(SimpleMath::Quaternion<float>(initialOrientation.x, initialOrientation.y, initialOrientation.z, 0.0)),
+			box_center(box_center),
+			size(size),
+			mass(mass) { points = calc_points(box_center, size); }
+
+		std::array<MassPoint, 8>	points;
+		Quaternion<float>			orientation;
+		Vec3						box_center;
+		Vec3						size;
+		float						mass;
+	};
+  
 	Point2D m_mouse;
 	Point2D m_trackmouse;
 	Point2D m_oldtrackmouse;
+
 	};
+
 #endif
