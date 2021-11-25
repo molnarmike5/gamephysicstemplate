@@ -36,11 +36,13 @@ public:
 	void setOrientationOf(int i,Quat orientation);
 	void setVelocityOf(int i, Vec3 velocity);
 
-private:	
+
+private:
 	// Attributes
 	// add your RigidBodySystem data members, for e.g.,
 	// RigidBodySystem * m_pRigidBodySystem; 
 	Vec3 m_externalForce;
+
 	
 	struct MassPoint
 	{
@@ -67,12 +69,11 @@ private:
 		Vec3						size;
 		float						mass;
 	};
-	
-	// UI Attributes
+  
 	Point2D m_mouse;
 	Point2D m_trackmouse;
 	Point2D m_oldtrackmouse;
-	
+
 	};
 
 #endif
