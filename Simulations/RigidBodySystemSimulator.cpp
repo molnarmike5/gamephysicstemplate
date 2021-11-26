@@ -29,13 +29,12 @@ Mat4f RigidBodySystemSimulator::RigidBody::calc_inertia_tensor_0()
     float x = 0;
     const int num_points = points.size();
     const float new_mass = mass / num_points;
-    covariance.value[3][3] = 1;
-    
+  
     for (int i = 0; i < num_points; ++i) x += points[i].position.x * points[i].position.x * new_mass;
     covariance.value[0][0] = x; x = 0;
 
     for (int i = 0; i < num_points; ++i) x += points[i].position.y * points[i].position.y * new_mass;
-    covariance.value[1][2] = x; x = 0;
+    covariance.value[1][1] = x; x = 0;
 
     for (int i = 0; i < num_points; ++i) x += points[i].position.z * points[i].position.z * new_mass;
     covariance.value[2][2] = x; x = 0;
@@ -49,7 +48,13 @@ Mat4f RigidBodySystemSimulator::RigidBody::calc_inertia_tensor_0()
     for (int i = 0; i < num_points; ++i) x += points[i].position.y * points[i].position.z * new_mass;
     covariance.value[1][2] = covariance.value[2][1] = x;
 
-    
+    auto trace = covariance.value[0][0] + covariance.value[1][1] + covariance.value[2][2];
+    Mat4f identity;
+    identity.initId();
+    identity.value[3][3] = 0;
+    auto inertia = identity * trace - covariance;
+    inertia.value[3][3] = 1;
+    return inertia;
 }
 
 void RigidBodySystemSimulator::reset()
@@ -65,6 +70,10 @@ void RigidBodySystemSimulator::externalForcesCalculations(float timeElapsed)
 
 void RigidBodySystemSimulator::simulateTimestep(float timeStep)
 {
+    for (const auto& rigidBody : rigid_bodies_) {
+        Quat q_w;
+       // rigidBody.orientation += timeStep / 2 * q_w;
+    }
 }
 
 int RigidBodySystemSimulator::getNumberOfRigidBodies()
@@ -88,15 +97,13 @@ Vec3 RigidBodySystemSimulator::getAngularVelocityOfRigidBody(int i)
 }
 
 void RigidBodySystemSimulator::applyForceOnBody(int i, Vec3 loc, Vec3 force)
-{
-
-
-    
+{    
+    rigid_bodies_[i].torque += cross(loc, force);   
 }
 
 void RigidBodySystemSimulator::addRigidBody(Vec3 position, Vec3 size, int mass)
 {
-    rigid_bodies_.push_back(RigidBody(Vec3(), position, size, mass));
+    rigid_bodies_.push_back(RigidBody(position, size, mass));
 }
 
 void RigidBodySystemSimulator::setOrientationOf(int i, Quat orientation)

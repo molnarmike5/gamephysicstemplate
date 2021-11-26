@@ -57,8 +57,7 @@ private:
 		std::array<MassPoint, 8> calc_points();
 		Mat4f calc_inertia_tensor_0();
 		
-		RigidBody(Vec3 initialOrientation, Vec3 position, Vec3 size, float mass) :
-			orientation(Quat<float>(initialOrientation.x, initialOrientation.y, initialOrientation.z, 0.0)),
+		RigidBody(Vec3 position, Vec3 size, float mass) :
 			position(position),
 			size(size),
 			mass(mass)
@@ -69,9 +68,10 @@ private:
 		}
 
 		std::array<MassPoint, 8>	points;
-		Quat<float>					orientation;
+		Quat						orientation;
 		Vec3						position;
 		Vec3						size;
+		Vec3						torque;
 		Vec3						linear_velocity;
 		Vec3						angular_velocity;
 		Vec3						angular_momentum;
