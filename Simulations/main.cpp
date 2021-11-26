@@ -379,7 +379,11 @@ int main(int argc, char* argv[])
     g_pSimulator = new MassSpringSystemSimulator();
 #endif
 #ifdef RIGID_BODY_SYSTEM
-    g_pSimulator= new RigidBodySystemSimulator();
+    auto simulator = new RigidBodySystemSimulator();
+    g_pSimulator= simulator;
+    simulator->addRigidBody(Vec3(0,0,0),Vec3(1,0.6,0.5),2);
+    simulator->applyForceOnBody(0, Vec3(0.3, 0.5, 0.25), Vec3(1, 1, 0));
+
 #endif
 #ifdef SPH_SYSTEM
     //g_pSimulator= new SPHSystemSimulator();

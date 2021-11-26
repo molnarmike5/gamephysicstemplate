@@ -55,27 +55,30 @@ private:
 	struct RigidBody
 	{
 		std::array<MassPoint, 8> calc_points();
-		Mat4f calc_inertia_tensor_0();
+		Mat4d calc_inertia_tensor_0();
 		
 		RigidBody(Vec3 position, Vec3 size, float mass) :
+			orientation(),
 			position(position),
 			size(size),
-			mass(mass)
+			mass(mass),
+			angular_velocity(),
+			angular_momentum()
 		{
 			points = calc_points();
 
-			inertia_tensor_0 = calc_inertia_tensor_0();
+			inertia_tensor_0_inverse = calc_inertia_tensor_0().inverse();
 		}
 
 		std::array<MassPoint, 8>	points;
-		Quat						orientation;
+		GamePhysics::Quat			orientation;
 		Vec3						position;
 		Vec3						size;
 		Vec3						torque;
 		Vec3						linear_velocity;
 		Vec3						angular_velocity;
 		Vec3						angular_momentum;
-		Mat4f						inertia_tensor_0;
+		Mat4d						inertia_tensor_0_inverse;
 		int							mass;
 	};
   
