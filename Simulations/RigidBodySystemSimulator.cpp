@@ -73,16 +73,24 @@ void RigidBodySystemSimulator::externalForcesCalculations(float timeElapsed)
 void RigidBodySystemSimulator::simulateTimestep(float timeStep)
 {
 	for (auto& rigidBody : rigid_bodies_) {
-		Quat q_w(0,rigidBody.angular_velocity.x, rigidBody.angular_velocity.y, rigidBody.angular_velocity.z);
-		rigidBody.orientation += (timeStep / 2) * q_w;
+
+		//Euler Step
+		rigidBody.position += timeStep * rigidBody.linear_velocity;
+		rigidBody.linear_velocity += timeStep * (m_externalForce / rigidBody.mass);
+		//Calculate (0 w) Quaternion
+		Quat q_w(rigidBody.angular_velocity.x, rigidBody.angular_velocity.y, rigidBody.angular_velocity.z, 0);
+		//Update r
+		rigidBody.orientation += (timeStep / 2) * q_w * rigidBody.orientation;
+		rigidBody.orientation = rigidBody.orientation.unit(); //Normalization
 		rigidBody.angular_momentum += timeStep * rigidBody.torque;
+		//Calculate Inertia Tensor
 		auto rotMat = rigidBody.orientation.getRotMat();
-		rotMat.transpose();
-		auto inverseTensor =  rigidBody.inertia_tensor_0_inverse * rotMat;
-		rotMat.transpose();
-		inverseTensor = rotMat * inverseTensor;
-		rigidBody.angular_velocity = inverseTensor * rigidBody.angular_momentum;
-		rigidBody.position += rotMat * rigidBody.position;
+		auto rotMatTrans = rigidBody.orientation.getRotMat();
+		rotMatTrans.transpose();
+		auto inverseTensor = rotMat * rigidBody.inertia_tensor_0_inverse * rotMatTrans;
+		rigidBody.angular_velocity = inverseTensor.transformVector(rigidBody.angular_momentum);
+
+		
 		
 	}	
 }
@@ -109,6 +117,7 @@ Vec3 RigidBodySystemSimulator::getAngularVelocityOfRigidBody(int i)
 
 void RigidBodySystemSimulator::applyForceOnBody(int i, Vec3 loc, Vec3 force)
 {
+	m_externalForce += force;
 	rigid_bodies_[i].torque += cross(loc, force);
 }
 
@@ -144,9 +153,11 @@ void RigidBodySystemSimulator::drawFrame(ID3D11DeviceContext* pd3dImmediateConte
 	for (auto& rigidBody : rigid_bodies_) {
 		Mat4 transform{};
 		Mat4 scale{};
+		//Trivial
 		transform.initTranslation(rigidBody.position.x, rigidBody.position.y, rigidBody.position.z);
+		auto scaledobjtoWorld = rigidBody.orientation.getRotMat() * transform;
 		scale.initScaling(rigidBody.size.x, rigidBody.size.y, rigidBody.size.z);
-		Mat4 model =  transform;
+		Mat4 model =  scale * scaledobjtoWorld;
 		DUC->drawRigidBody(model);
 	}
 }

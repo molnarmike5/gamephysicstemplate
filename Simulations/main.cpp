@@ -3,6 +3,7 @@
 #include <random>
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <math.h>
 #include <iostream>
 // DrawingUtilitiesClass
 #include "DrawingUtilitiesClass.h"
@@ -40,7 +41,7 @@ using namespace GamePhysics;
 
 DrawingUtilitiesClass* g_pDUC;
 Simulator* g_pSimulator;
-float g_fTimestep = 0.001;
+float g_fTimestep = 0.0001;
 #ifdef ADAPTIVESTEP
 float   g_fTimeFactor = 1;
 #endif
@@ -382,6 +383,7 @@ int main(int argc, char* argv[])
     auto simulator = new RigidBodySystemSimulator();
     g_pSimulator= simulator;
     simulator->addRigidBody(Vec3(0,0,0),Vec3(1,0.6,0.5),2);
+    simulator->setOrientationOf(0, Quat(Vec3(0, 0, 1), M_PI_2));
     simulator->applyForceOnBody(0, Vec3(0.3, 0.5, 0.25), Vec3(1, 1, 0));
 
 #endif
