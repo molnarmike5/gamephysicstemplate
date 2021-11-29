@@ -220,7 +220,7 @@ void RigidBodySystemSimulator::notifyCaseChanged(int testCase)
 		//Leider wegen Collision Detection, ist uns keine bessere Simulation eingefallen, aber es funtioniert ganz gut
 		addRigidBody(Vec3(0, 0, 0), Vec3(1, 0.6, 0.5), 2);
 		addRigidBody(Vec3(1.2, 0, 0), Vec3(1, 0.6, 0.5), 4);
-		addRigidBody(Vec3(0.6, 2, 0), Vec3(5, 1, 5), 100);
+		addRigidBody(Vec3(0.6, 2, 0), Vec3(5, 1, 5), 10);
 		addRigidBody(Vec3(-3, 0.5, 0), Vec3(1, 1, 1), 1);
 		setOrientationOf(0, Quat(Vec3(0, 0, 1), M_PI_4));
 		setOrientationOf(1, Quat(Vec3(0, 1, 0), M_PI_4));
