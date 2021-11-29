@@ -201,7 +201,7 @@ void RigidBodySystemSimulator::notifyCaseChanged(int testCase)
 		reset();
 		cout << "Demo2!\n";
 		addRigidBody(Vec3(0, 0, 0), Vec3(1, 0.6, 0.5), 2);
-		setOrientationOf(0, Quat(Vec3(0, 0, 1), -M_PI_4));
+		setOrientationOf(0, Quat(Vec3(0, 0, 1), M_PI_2));
 		applyForceOnBody(0, Vec3(0.3, 0.5, 0.25), Vec3(1, 1, 0));
 		break;
 	case 1:
@@ -212,24 +212,24 @@ void RigidBodySystemSimulator::notifyCaseChanged(int testCase)
 		applyForceOnBody(0, Vec3(0.3, 0.5, 0.25), Vec3(1, 1, 0));
 		addRigidBody(Vec3(1.2, 0, 0), Vec3(1, 0.6, 0.5), 4);
 		setOrientationOf(1, Quat(Vec3(0, 1, 0), M_PI_4));
-		applyForceOnBody(1, Vec3(0.3, 0.5, 0.25), Vec3(1, 1, 0));
+		applyForceOnBody(1, Vec3(0.3, 0.5, 0.25), Vec3(-1, 1, 0));
 		break;
 	case 2:
 		reset();
 		cout << "Demo4!\n";
+		//Leider wegen Collision Detection, ist uns keine bessere Simulation eingefallen, aber es funtioniert ganz gut
 		addRigidBody(Vec3(0, 0, 0), Vec3(1, 0.6, 0.5), 2);
 		addRigidBody(Vec3(1.2, 0, 0), Vec3(1, 0.6, 0.5), 4);
-		addRigidBody(Vec3(0.6, 2, 0), Vec3(5, 1, 5), 2);
+		addRigidBody(Vec3(0.6, 2, 0), Vec3(5, 1, 5), 100);
 		addRigidBody(Vec3(-3, 0.5, 0), Vec3(1, 1, 1), 1);
-		setOrientationOf(0, Quat(Vec3(0, 0, 1), -M_PI_4));
+		setOrientationOf(0, Quat(Vec3(0, 0, 1), M_PI_4));
 		setOrientationOf(1, Quat(Vec3(0, 1, 0), M_PI_4));
 		setOrientationOf(2, Quat(Vec3(0, 0, 0), 0));
 		setOrientationOf(3, Quat(Vec3(1, 0, -0.5), M_PI / 7));
 		applyForceOnBody(0, Vec3(0.3, 0.5, 0.25), Vec3(1, 3, 0));
-		applyForceOnBody(1, Vec3(0.3, 0.5, 0.25), Vec3(1, 1, 0));
+		applyForceOnBody(1, Vec3(0.3, 0.5, 0.25), Vec3(-3, 1, 0));
 		applyForceOnBody(3, Vec3(-3, 1, 0), Vec3(1, 0, 0));
 	}
-	reset();
 }
 
 void RigidBodySystemSimulator::onClick(int x, int y)
