@@ -2,12 +2,12 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\bamib\source\repos\gamephysics\AntTweakBar\lib\debug\AntTweakBar.dll</FullPath>
+      <FullPath>D:\physics\gamephysicstemplate\AntTweakBar\lib\debug\AntTweakBar.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\bamib\source\repos\gamephysics\Win32\Debug\effect.fxo</FullPath>
+      <FullPath>D:\physics\gamephysicstemplate\Win32\Debug\effect.fxo</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

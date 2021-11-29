@@ -382,15 +382,6 @@ int main(int argc, char* argv[])
 #ifdef RIGID_BODY_SYSTEM
     auto simulator = new RigidBodySystemSimulator();
     g_pSimulator= simulator;
-    simulator->addRigidBody(Vec3(0,0,0),Vec3(1,0.6,0.5),2);
-    simulator->setOrientationOf(0, Quat(Vec3(0, 0, 1),-M_PI_4));
-    simulator->addRigidBody(Vec3(1.2, 0, 0), Vec3(1, 0.6, 0.5), 4);
-    simulator->setOrientationOf(1, Quat(Vec3(0, 1, 0), M_PI_4));
-    simulator->applyForceOnBody(0, Vec3(0.3, 0.5, 0.25), Vec3(1, 1, 0)); // DEMO 1
-    simulator->applyForceOnBody(1, Vec3(0.3, 0.5, 0.25), Vec3(1, 1, 0)); // DEMO 1
-
-    simulator->addRigidBody(Vec3(0.6, 2, 0), Vec3(5, 1,5), 10);
-    simulator->setOrientationOf(2, Quat(Vec3(0, 0, 0), 0));
 
 #endif
 #ifdef SPH_SYSTEM
