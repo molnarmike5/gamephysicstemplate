@@ -3,8 +3,9 @@
 
 #include <array>
 #include "d3d11.h"
-#include "SimpleMath.h"
 #include "Simulator.h"
+#include "collisionDetect.h"
+
 //add your header for your rigid body system, for e.g.,
 //#include "rigidBodySystem.h" 
 
@@ -13,7 +14,7 @@
 class RigidBodySystemSimulator:public Simulator{
 public:
 	// Construtors
-	RigidBodySystemSimulator();
+	RigidBodySystemSimulator() = default;
 	
 	// Functions
 	const char * getTestCasesStr();
@@ -46,6 +47,7 @@ private:
 	
 	struct MassPoint
 	{
+		MassPoint() { MassPoint(Vec3()); }
 		MassPoint(Vec3 pos) :
 			position(pos) {}
 
@@ -54,26 +56,51 @@ private:
 	
 	struct RigidBody
 	{
-		static std::array<MassPoint, 8> calc_points(Vec3 box_center, Vec3 size);
+		std::array<MassPoint, 8> calc_points();
+		Mat4d calc_inertia_tensor_0();
 		
-		RigidBody(Vec3 initialOrientation, Vec3 box_center, Vec3 size, float mass) :
-			points(),
-			orientation(SimpleMath::Quaternion<float>(initialOrientation.x, initialOrientation.y, initialOrientation.z, 0.0)),
-			box_center(box_center),
+		RigidBody(Vec3 position, Vec3 size, float mass) :
+			orientation(0, 0, 0, 1),
+			initial_orientation(0, 0, 0, 1),
+			position(position),
+			intial_position(position),
 			size(size),
-			mass(mass) { points = calc_points(box_center, size); }
+			mass(mass),
+			externalForce(),
+			angular_velocity(),
+			angular_momentum()
+		{
+			points = calc_points();
+
+			inertia_tensor_0_inverse = calc_inertia_tensor_0().inverse();
+
+
+		}
 
 		std::array<MassPoint, 8>	points;
-		Quaternion<float>			orientation;
-		Vec3						box_center;
+		GamePhysics::Quat			orientation;
+		GamePhysics::Quat			initial_orientation;
+		Vec3						position;
+		Vec3						intial_position;
 		Vec3						size;
-		float						mass;
+		Vec3						torque;
+		Vec3						linear_velocity;
+		Vec3						angular_velocity;
+		Vec3						angular_momentum;
+		Vec3						externalForce;
+		Mat4d						inertia_tensor_0_inverse;
+		Mat4d						obj2world;
+		int							mass;
 	};
   
 	Point2D m_mouse;
 	Point2D m_trackmouse;
 	Point2D m_oldtrackmouse;
 
+	vector<RigidBody>      rigid_bodies_;
+
+	void calculateCollision(RigidBody& r1, RigidBody& r2, CollisionInfo& info);
+	
 	};
 
 #endif
