@@ -2,9 +2,38 @@
 #include "pcgsolver.h"
 using namespace std;
 
-Grid::Grid() {
+Grid::Grid(int w, int h) : width(w), height(h), points(height, vector<Point>(width)) {
 }
 
+int Grid::getWidth()
+{
+	return width;
+}
+
+int Grid::getHeight()
+{
+	return height;
+}
+
+void Grid::setHeight(int newHeight)
+{
+	height = newHeight;
+}
+
+void Grid::setWidth(int newWidth)
+{
+	width = newWidth;
+}
+
+Point Grid::getPoint(int x, int y)
+{
+	return points[y][x];
+}
+
+vector<vector<Point>> Grid::GetPoints()
+{
+	return points;
+}
 
 DiffusionSimulator::DiffusionSimulator()
 {
@@ -55,9 +84,10 @@ void DiffusionSimulator::notifyCaseChanged(int testCase)
 }
 
 Grid* DiffusionSimulator::diffuseTemperatureExplicit() {//add your own parameters
-	Grid* newT = new Grid();
+	Grid* newT = new Grid(5, 5);
 	// to be implemented
 	//make sure that the temperature in boundary cells stays zero
+	
 	return newT;
 }
 
@@ -69,10 +99,23 @@ void setupB(std::vector<Real>& b) {//add your own parameters
 	}
 }
 
-void fillT() {//add your own parameters
+void DiffusionSimulator::fillT() {//add your own parameters
 	// to be implemented
 	//fill T with solved vector x
 	//make sure that the temperature in boundary cells stays zero
+
+	float currentX = 0, currentY = 0;
+	
+	for (int i = 0; i < T->getHeight(); ++i)
+	{
+		for (int j = 0; j < T->getWidth(); ++j)
+		{
+			T->getPoint(i, j) = Point(Vec3(currentX, currentY, 0), 0);
+			currentX += 0.1;
+			currentY += 0.1;
+		}
+	}
+	
 }
 
 void setupA(SparseMatrix<Real>& A, double factor) {//add your own parameters
@@ -125,6 +168,7 @@ void DiffusionSimulator::simulateTimestep(float timeStep)
 	{
 	case 0:
 		T = diffuseTemperatureExplicit();
+		fillT();
 		break;
 	case 1:
 		diffuseTemperatureImplicit();
@@ -136,6 +180,16 @@ void DiffusionSimulator::drawObjects()
 {
 	// to be implemented
 	//visualization
+	
+	for (auto vector : T->GetPoints())
+	{
+		for (auto point : vector)
+		{
+			DUC->setUpLighting(Vec3(), 0.4 * Vec3(1, 1, 1), 100, 0.6 * Vec3(point.temperature, 0, 0));
+			DUC->drawSphere(point.position, Vec3(0.02));
+		}
+	}
+
 }
 
 

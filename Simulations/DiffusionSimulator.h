@@ -4,18 +4,37 @@
 #include "Simulator.h"
 #include "vectorbase.h"
 
-//impement your own grid class for saving grid data
+class Point
+{
+public:
+	Point(Vec3 pos, float temp)
+	: position(pos), temperature(temp) {}
+	
+	Vec3 position;
+	float temperature = 0;
+};
+
+//implement your own grid class for saving grid data
 class Grid {
 public:
 	// Construtors
-	Grid();
+	Grid(int w, int h);
 
-
+	int getWidth();
+	int getHeight();
+	void setWidth(int newWidth);
+	void setHeight(int newHeight);
+	vector<vector<Point>> GetPoints();
+	Point getPoint(int x, int y);
+	
 private:
 	// Attributes
+	int width, height;
+	vector<vector<Point>> points;
+
+	// int addPoint(Point p);
+	// int addPoint(Vec3 pos, float temp);
 };
-
-
 
 class DiffusionSimulator:public Simulator{
 public:
@@ -36,7 +55,8 @@ public:
 	void drawObjects();
 	Grid* diffuseTemperatureExplicit();
 	void diffuseTemperatureImplicit();
-
+	void fillT();
+	
 private:
 	// Attributes
 	Vec3  m_vfMovableObjectPos;
