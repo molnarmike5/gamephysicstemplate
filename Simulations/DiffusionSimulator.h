@@ -1,12 +1,11 @@
-#ifndef DIFFUSIONSIMULATOR_h
-#define DIFFUSIONSIMULATOR_h
-
+#pragma once
 #include "Simulator.h"
 #include "vectorbase.h"
 
 class Point
 {
 public:
+	Point() = default;
 	Point(Vec3 pos, float temp)
 	: position(pos), temperature(temp) {}
 	
@@ -24,8 +23,8 @@ public:
 	int getHeight();
 	void setWidth(int newWidth);
 	void setHeight(int newHeight);
-	vector<vector<Point>> GetPoints();
-	Point getPoint(int x, int y);
+	vector<vector<Point>>& getPoints();
+	Point& getPoint(int x, int y);
 	
 private:
 	// Attributes
@@ -53,7 +52,7 @@ public:
 	void onMouse(int x, int y);
 	// Specific Functions
 	void drawObjects();
-	Grid* diffuseTemperatureExplicit();
+	Grid* diffuseTemperatureExplicit(float timeStep);
 	void diffuseTemperatureImplicit();
 	void fillT();
 	
@@ -67,5 +66,3 @@ private:
 	Point2D m_oldtrackmouse;
 	Grid *T; //save results of every time step
 };
-
-#endif
