@@ -1,4 +1,6 @@
-#pragma once
+#ifndef DIFFUSIONSIMULATOR_h
+#define DIFFUSIONSIMULATOR_h
+
 #include "Simulator.h"
 #include "vectorbase.h"
 
@@ -16,6 +18,10 @@ public:
 //implement your own grid class for saving grid data
 class Grid {
 public:
+	// attributes
+	int width, height;
+	vector<vector<Point>> points;
+
 	// Construtors
 	Grid(int w, int h);
 
@@ -23,13 +29,11 @@ public:
 	int getHeight();
 	void setWidth(int newWidth);
 	void setHeight(int newHeight);
-	vector<vector<Point>>& getPoints();
-	Point& getPoint(int x, int y);
+	vector<vector<Point>>& GetPoints();
+	Point getPoint(int x, int y);
 	
 private:
 	// Attributes
-	int width, height;
-	vector<vector<Point>> points;
 
 	// int addPoint(Point p);
 	// int addPoint(Vec3 pos, float temp);
@@ -44,6 +48,7 @@ public:
 	const char * getTestCasesStr();
 	void initUI(DrawingUtilitiesClass * DUC);
 	void reset();
+	void getHeight(void* value, void* clientData);
 	void drawFrame(ID3D11DeviceContext* pd3dImmediateContext);
 	void notifyCaseChanged(int testCase);
 	void simulateTimestep(float timeStep);
@@ -52,10 +57,11 @@ public:
 	void onMouse(int x, int y);
 	// Specific Functions
 	void drawObjects();
-	Grid* diffuseTemperatureExplicit(float timeStep);
+	void diffuseTemperatureExplicit();
 	void diffuseTemperatureImplicit();
+	void resize();
 	void fillT();
-	
+
 private:
 	// Attributes
 	Vec3  m_vfMovableObjectPos;
@@ -65,4 +71,8 @@ private:
 	Point2D m_trackmouse;
 	Point2D m_oldtrackmouse;
 	Grid *T; //save results of every time step
+	float m_delta = 0.05;
+	int old_width, old_height, old_delta;
 };
+
+#endif

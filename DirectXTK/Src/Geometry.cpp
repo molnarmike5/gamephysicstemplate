@@ -13,6 +13,9 @@
 
 #include "pch.h"
 #include "Geometry.h"
+
+#include <stdexcept>
+
 #include "Bezier.h"
 #include <stdexcept>
 
