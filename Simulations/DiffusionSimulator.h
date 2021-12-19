@@ -1,6 +1,5 @@
-#ifndef DIFFUSIONSIMULATOR_h
-#define DIFFUSIONSIMULATOR_h
-
+#pragma once
+#include "pcgsolver.h"
 #include "Simulator.h"
 #include "vectorbase.h"
 
@@ -18,10 +17,6 @@ public:
 //implement your own grid class for saving grid data
 class Grid {
 public:
-	// attributes
-	int width, height;
-	vector<vector<Point>> points;
-
 	// Construtors
 	Grid(int w, int h);
 
@@ -29,8 +24,11 @@ public:
 	int getHeight();
 	void setWidth(int newWidth);
 	void setHeight(int newHeight);
-	vector<vector<Point>>& GetPoints();
-	Point getPoint(int x, int y);
+	vector<vector<Point>>& getPoints();
+	Point& getPoint(int x, int y);
+	
+	int width, height;
+	vector<vector<Point>> points;
 	
 private:
 	// Attributes
@@ -48,7 +46,6 @@ public:
 	const char * getTestCasesStr();
 	void initUI(DrawingUtilitiesClass * DUC);
 	void reset();
-	void getHeight(void* value, void* clientData);
 	void drawFrame(ID3D11DeviceContext* pd3dImmediateContext);
 	void notifyCaseChanged(int testCase);
 	void simulateTimestep(float timeStep);
@@ -57,22 +54,22 @@ public:
 	void onMouse(int x, int y);
 	// Specific Functions
 	void drawObjects();
-	void diffuseTemperatureExplicit();
-	void diffuseTemperatureImplicit();
-	void resize();
+	Grid* diffuseTemperatureExplicit(float timeStep, float alpha);
+	Grid* diffuseTemperatureImplicit(float timestep, float alpha);
 	void fillT();
+	void setupA(SparseMatrix<Real>& A, double factor);
+	void setupB(std::vector<Real>& b);
 
 private:
 	// Attributes
 	Vec3  m_vfMovableObjectPos;
 	Vec3  m_vfMovableObjectFinalPos;
 	Vec3  m_vfRotate;
+	float alpha = 0.0005f;
+	float m_delta = 0.05f;
+	
 	Point2D m_mouse;
 	Point2D m_trackmouse;
 	Point2D m_oldtrackmouse;
 	Grid *T; //save results of every time step
-	float m_delta = 0.05;
-	int old_width, old_height, old_delta;
 };
-
-#endif

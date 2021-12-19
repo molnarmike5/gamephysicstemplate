@@ -2,6 +2,9 @@
 #include "pcgsolver.h"
 using namespace std;
 
+GamePhysics::Vec3 mapToColor(float temp);
+GamePhysics::Vec3 getColor(float temp);
+
 Grid::Grid(int w, int h) : width(w), height(h), points(height, vector<Point>(width))
 {
 }
@@ -26,25 +29,27 @@ void Grid::setWidth(int newWidth)
     width = newWidth;
 }
 
-Point Grid::getPoint(int x, int y)
+Point& Grid::getPoint(int x, int y)
 {
     return points[y][x];
 }
 
-vector<vector<Point>>& Grid::GetPoints()
+vector<vector<Point>>& Grid::getPoints()
 {
     return points;
 }
 
 DiffusionSimulator::DiffusionSimulator()
 {
-    m_iTestCase = 0;
+    m_iTestCase = 1;
     m_vfMovableObjectPos = Vec3();
     m_vfMovableObjectFinalPos = Vec3();
     m_vfRotate = Vec3();
-    T = new Grid(16, 16);
-	fillT();
-	// to be implemented
+
+    int size = 20;
+    T = new Grid(size, size);
+    fillT();
+    // to be implemented
 }
 
 const char* DiffusionSimulator::getTestCasesStr()
@@ -52,13 +57,13 @@ const char* DiffusionSimulator::getTestCasesStr()
     return "Explicit_solver, Implicit_solver";
 }
 
-void DiffusionSimulator::reset() 
+void DiffusionSimulator::reset()
 {
     m_mouse.x = m_mouse.y = 0;
     m_trackmouse.x = m_trackmouse.y = 0;
     m_oldtrackmouse.x = m_oldtrackmouse.y = 0;
 
-    diffuseTemperatureExplicit();
+    fillT();
 }
 
 void DiffusionSimulator::initUI(DrawingUtilitiesClass* DUC)
@@ -69,9 +74,9 @@ void DiffusionSimulator::initUI(DrawingUtilitiesClass* DUC)
     switch (m_iTestCase)
     {
     case 0:
-        TwAddVarRW(DUC->g_pTweakBar, "Height", TW_TYPE_INT32, &T->height, "min=1 step=1");
-        TwAddVarRW(DUC->g_pTweakBar, "Width", TW_TYPE_INT32, &T->width, "min=1 step=1");
-        TwAddVarRW(DUC->g_pTweakBar, "Space between", TW_TYPE_FLOAT, &m_delta, "min=0.01 step=0.01");
+        // TwAddVarRW(DUC->g_pTweakBar, "Height", TW_TYPE_INT32, &T->height, "min=1 step=1");
+        // TwAddVarRW(DUC->g_pTweakBar, "Width", TW_TYPE_INT32, &T->width, "min=1 step=1");
+        // TwAddVarRW(DUC->g_pTweakBar, "Space between", TW_TYPE_FLOAT, &m_delta, "min=0.01 step=0.01");
 
         break;
     case 1:
@@ -84,6 +89,8 @@ void DiffusionSimulator::notifyCaseChanged(int testCase)
     m_iTestCase = testCase;
     m_vfMovableObjectPos = Vec3(0, 0, 0);
     m_vfRotate = Vec3(0, 0, 0);
+    reset();
+
     //
     //to be implemented
     //
@@ -91,7 +98,6 @@ void DiffusionSimulator::notifyCaseChanged(int testCase)
     {
     case 0:
         cout << "Explicit solver!\n";
-        diffuseTemperatureExplicit();
         break;
     case 1:
         cout << "Implicit solver!\n";
@@ -102,43 +108,33 @@ void DiffusionSimulator::notifyCaseChanged(int testCase)
     }
 }
 
-Grid* DiffusionSimulator::diffuseTemperatureExplicit(float timeStep) {
-
-	float alpha = 0.005f;
-
-	float delta = T->getPoint(1,0).position[0] - T->getPoint(0, 0).position[0];
-	delta *= delta;
-
-	for (size_t i = 0; i < T->getHeight(); i++) {
-		for (size_t j = 0; j < T->getWidth(); j++) {
-			Point* point = &(T->getPoint(i, j));
-
-			// Check for boundary
-			if (i == 0 || i == T->getHeight() - 1 || j == 0 || j == T->getWidth() - 1) {
-				point->temperature = 1;
-			}
-			else {
-				
-				float temp_x = (T->getPoint(i + 1, j).temperature - 2 * point->temperature + T->getPoint(i - 1, j).temperature) / delta;				
-				float temp_y = (T->getPoint(i, j + 1).temperature - 2 * point->temperature + T->getPoint(i, j - 1).temperature) / delta;
-				float delta_t = alpha *  (temp_x + temp_y);
-				point->temperature = point->temperature + timeStep * delta_t;
-			}
-		}
-	}
-
-	return T;
-}
-
-void setupB(std::vector<Real>& b)
+Grid* DiffusionSimulator::diffuseTemperatureExplicit(float timeStep, float alpha)
 {
-    //add your own parameters
-    // to be implemented
-    //set vector B[sizeX*sizeY]
-    for (int i = 0; i < 25; i++)
+    float delta = T->getPoint(1, 0).position[0] - T->getPoint(0, 0).position[0];
+    delta *= delta;
+    delta = 1 / delta * alpha;
+
+    for (size_t i = 0; i < T->getHeight(); i++)
     {
-        b.at(i) = 0;
+        for (size_t j = 0; j < T->getWidth(); j++)
+        {
+            Point* point = &(T->getPoint(i, j));
+
+            // Check for boundary
+            if (i == 0 || i == T->getHeight() - 1 || j == 0 || j == T->getWidth() - 1)
+            {
+                point->temperature = 0;
+            }
+            else
+            {
+                float delta_t = (T->getPoint(i, j + 1).temperature + T->getPoint(i + 1, j).temperature - 4 * point->
+                    temperature + T->getPoint(i - 1, j).temperature + T->getPoint(i, j - 1).temperature) * delta;
+                point->temperature = point->temperature + timeStep * delta_t;
+            }
+        }
     }
+
+    return T;
 }
 
 void DiffusionSimulator::fillT()
@@ -150,15 +146,17 @@ void DiffusionSimulator::fillT()
 
     float currentX = 0, currentY = 0, temp;
     const auto offset = Vec3(T->getWidth() / 2 * m_delta, T->getHeight() / 2 * m_delta, 0);
-
+    float sigmar = 3;
+    
     for (int i = 0; i < T->getHeight(); ++i)
     {
         for (int j = 0; j < T->getWidth(); ++j)
         {
             if (j == 0 || i == 0 || j == T->getWidth() - 1 || i == T->getHeight() - 1) temp = 0;
+            else if ((i > T->getHeight() / 2 - sigmar && i < T->getHeight() / 2 + sigmar) && (j > T->getWidth() / 2 - sigmar && j < T->getWidth() / 2 + sigmar))
+                temp = 0;
             else temp = 1;
-            // temp = currentX * currentY * 30;
-
+            
             T->points[i][j] = Point(Vec3(currentX, currentY, 0) - offset, temp);
             currentX += m_delta;
         }
@@ -168,7 +166,7 @@ void DiffusionSimulator::fillT()
     }
 }
 
-void setupA(SparseMatrix<Real>& A, double factor)
+void DiffusionSimulator::setupA(SparseMatrix<Real>& A, double factor)
 {
     //add your own parameters
     // to be implemented
@@ -176,22 +174,61 @@ void setupA(SparseMatrix<Real>& A, double factor)
     // set with:  A.set_element( index1, index2 , value );
     // if needed, read with: A(index1, index2);
     // avoid zero rows in A -> set the diagonal value for boundary cells to 1.0
-    for (int i = 0; i < 25; i++)
+
+    int width = T->getWidth();
+    int height = T->getHeight();
+    int size = width * height;
+
+    for (int i = 0; i < height; i++)
     {
-        A.set_element(i, i, 1); // set diagonal
+        for (int j = 0; j < width; ++j)
+        {
+            int index = i * width + j;
+            
+            if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
+            {
+                A.set_element(index, index, 1.0f);
+            }
+
+            else
+            {
+                A.set_element(index, index, 1 + 4 * factor);
+                
+                A.set_element(index - 1,index, -factor);
+                A.set_element(index + 1,index, -factor);
+                A.set_element(index - width, index, -factor);
+                A.set_element(index + width, index, -factor);
+            }   
+        }
     }
 }
 
-void DiffusionSimulator::diffuseTemperatureImplicit()
+void DiffusionSimulator::setupB(std::vector<Real>& b)
+{
+    //add your own parameters
+    // to be implemented
+    // set vector B[sizeX*sizeY]
+    for (int i = 0; i < T->getHeight(); i++)
+    {
+        for (int j = 0; j < T->getWidth(); ++j)
+        {
+            b.at(i * T->getWidth() + j) = T->getPoint(j, i).temperature;
+        }
+    }
+}
+
+Grid* DiffusionSimulator::diffuseTemperatureImplicit(float timeStep, float alpha)
 {
     //add your own parameters
     // solve A T = b
     // to be implemented
-    const int N = 25; //N = sizeX*sizeY*sizeZ
+    const int N = T->getHeight() * T->getWidth(); //N = sizeX*sizeY*sizeZ
     SparseMatrix<Real>* A = new SparseMatrix<Real>(N);
     std::vector<Real>* b = new std::vector<Real>(N);
 
-    setupA(*A, 0.1);
+    float factor = T->getPoint(1, 0).position.x - T->getPoint(0, 0).position.x;
+    factor = alpha * timeStep / (factor * factor);
+    setupA(*A, factor);
     setupB(*b);
 
     // perform solve
@@ -209,11 +246,20 @@ void DiffusionSimulator::diffuseTemperatureImplicit()
     // preconditioners: 0 off, 1 diagonal, 2 incomplete cholesky
     solver.solve(*A, *b, x, ret_pcg_residual, ret_pcg_iterations, 0);
     // x contains the new temperature values
-    fillT(); //copy x to T
-}
 
-void DiffusionSimulator::resize()
-{
+    for (int i = 0; i < N; i++)
+    {
+        if (i / T->getWidth() == 0 || i / T->getWidth() == T->getHeight() - 1 || i % T->getWidth() == 0 || i % T->getWidth() == T->getWidth() - 1)
+        {
+            T->getPoint(i % T->getWidth(), i / T->getWidth()).temperature = 0;
+        }
+        else
+        {
+            T->getPoint(i % T->getWidth(), i / T->getWidth()).temperature = x[i];
+        }
+    }
+
+    return T;
 }
 
 void DiffusionSimulator::simulateTimestep(float timeStep)
@@ -223,66 +269,32 @@ void DiffusionSimulator::simulateTimestep(float timeStep)
     switch (m_iTestCase)
     {
     case 0:
-        if (T->width != old_width)
-        {
-            int diff = T->width - old_width;
-            for (int i = 0; i < T->height; ++i)
-            {
-                for (int j = 0; j < diff; ++j)
-                {
-                    T->points[i].push_back(Point());
-                }
-
-                for (int j = 0; j < -diff; ++j)
-                {
-                    T->points[i].erase(T->points[i].end() - 1);
-                }
-            }
-
-            fillT();
-            old_width = T->width;
-        }
-        else if (T->height != old_height)
-        {
-            int diff = T->height - old_height;
-            for (int i = 0; i < diff; ++i)
-            {
-                T->points.push_back(vector<Point>(T->width));
-            }
-            
-            for (int i = 0; i < -diff; ++i)
-            {
-                T->points.erase(T->points.end() - 1);
-            }
-            
-            fillT();
-            old_height = T->height;
-        }
-        else if (m_delta != old_delta)
-        {
-            fillT();
-            old_delta = m_delta;
-        }
-
+        T = diffuseTemperatureExplicit(timeStep, alpha);
         break;
     case 1:
-        diffuseTemperatureImplicit();
+        T = diffuseTemperatureImplicit(timeStep, alpha);
         break;
     }
 }
 
 void DiffusionSimulator::drawObjects()
 {
-    for (auto vector : T->GetPoints())
+    // to be implemented
+    //visualization
+
+    for (auto vector : T->getPoints())
     {
-        for (auto point : vector)
+        for (const auto& point : vector)
         {
-            const auto color = Vec3(1, 1 - point.temperature, 1 - point.temperature);
-            DUC->setUpLighting(Vec3(), 0.4 * Vec3(1, 1, 1), 100, 0.6 * color);
-            DUC->drawSphere(point.position, Vec3(0.01));
+            //Temperature Calculation
+            Vec3 diffuse_color = mapToColor(point.temperature);
+
+            DUC->setUpLighting(Vec3(), 0.4 * Vec3(1, 1, 1), 100, diffuse_color);
+            DUC->drawSphere(point.position, Vec3(0.02));
         }
     }
 }
+
 
 void DiffusionSimulator::drawFrame(ID3D11DeviceContext* pd3dImmediateContext)
 {
@@ -301,4 +313,72 @@ void DiffusionSimulator::onMouse(int x, int y)
     m_oldtrackmouse.y = y;
     m_trackmouse.x = x;
     m_trackmouse.y = y;
+}
+
+
+GamePhysics::Vec3 mapToColor(float temp)
+{
+    Vec3 temp1 = getColor(temp);
+
+    if (static_cast<int>(temp * 100) % 10 == 0)
+        return temp1;
+
+    Vec3 temp2 = getColor(temp + 0.1f);
+    Vec3 temperature{};
+
+    float x1 = floorf(temp * 10);
+    float x2 = ceilf(temp * 10);
+
+    for (size_t i = 0; i < 3; i++)
+    {
+        temperature[i] = temp1[i] + (10 * temp - x1) * (temp2[i] - temp1[i]) / (x2 - x1);
+    }
+
+    return temperature;
+}
+
+GamePhysics::Vec3 getColor(float temp)
+{
+    float r = 0, g = 0, b = 0;
+    if (temp <= 0.1)
+    {
+        r = 5, g = 48, b = 97;
+    }
+    else if (temp <= 0.2)
+    {
+        r = 33, g = 102, b = 172;
+    }
+    else if (temp <= 0.3)
+    {
+        r = 67, g = 147, b = 195;
+    }
+    else if (temp <= 0.4)
+    {
+        r = 146, g = 197, b = 222;
+    }
+    else if (temp <= 0.5)
+    {
+        r = 209, g = 229, b = 240;
+    }
+    else if (temp <= 0.6)
+    {
+        r = 253, g = 219, b = 199;
+    }
+    else if (temp <= 0.7)
+    {
+        r = 244, g = 165, b = 130;
+    }
+    else if (temp <= 0.8)
+    {
+        r = 214, g = 96, b = 77;
+    }
+    else if (temp <= 0.9)
+    {
+        r = 178, g = 24, b = 43;
+    }
+    else
+    {
+        r = 103, g = 0, b = 31;
+    }
+    return Vec3(r / 256.0f, g / 256.0f, b / 256.0f);
 }
