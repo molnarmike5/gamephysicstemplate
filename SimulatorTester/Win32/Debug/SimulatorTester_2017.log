@@ -1,1 +1,121 @@
-﻿
+﻿  PublicMassSpringSystemTests.cpp
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(11,1): warning C4005: "NOMINMAX": Makro-Neudefinition
+D:\physics\gamephysicstemplate\SimulatorTester\PublicMassSpringSystemTests.cpp : message : Siehe vorherige Definition von "NOMINMAX"
+D:\physics\gamephysicstemplate\SimulatorTester\PublicMassSpringSystemTests.cpp(57,1): warning C4305: "Argument": Verkürzung von "double" in "float"
+D:\physics\gamephysicstemplate\SimulatorTester\PublicMassSpringSystemTests.cpp(72,1): warning C4305: "Argument": Verkürzung von "double" in "float"
+D:\physics\gamephysicstemplate\SimulatorTester\PublicMassSpringSystemTests.cpp(99,1): warning C4305: "Argument": Verkürzung von "double" in "float"
+D:\physics\gamephysicstemplate\SimulatorTester\PublicMassSpringSystemTests.cpp(114,1): warning C4305: "Argument": Verkürzung von "double" in "float"
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(204,36): warning C4244: "Argument": Konvertierung von "const Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(203): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "DirectX::XMVECTOR GamePhysics::vector3Dim<GamePhysics::Real>::toDirectXVector(void) const"
+D:\physics\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(285): message : Siehe Verweis auf die gerade kompilierte Instanziierung "DirectX::XMVECTOR GamePhysics::vector3Dim<GamePhysics::Real>::toDirectXVector(void) const" der Funktions-Vorlage.
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(859): message : Siehe Verweis auf die gerade kompilierte Klasse Vorlage-Instanziierung "GamePhysics::vector3Dim<GamePhysics::Real>".
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(204,34): warning C4244: "Argument": Konvertierung von "const Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(204,32): warning C4244: "Argument": Konvertierung von "const Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(777,79): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(773): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "DirectX::XMMATRIX GamePhysics::matrix4x4<double>::toDirectXMatrix(void)"
+D:\physics\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(380): message : Siehe Verweis auf die gerade kompilierte Instanziierung "DirectX::XMMATRIX GamePhysics::matrix4x4<double>::toDirectXMatrix(void)" der Funktions-Vorlage.
+D:\physics\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(379): message : Siehe Verweis auf die gerade kompilierte Klasse Vorlage-Instanziierung "GamePhysics::matrix4x4<double>".
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(777,61): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(777,43): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(777,25): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(776,79): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(776,61): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(776,43): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(776,25): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(775,79): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(775,61): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(775,43): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(775,25): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,97): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,79): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,61): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,43): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+     Bibliothek "D:\physics\gamephysicstemplate\Win32\Debug\SimulationsTester.lib" und Objekt "D:\physics\gamephysicstemplate\Win32\Debug\SimulationsTester.exp" werden erstellt.
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: __thiscall MassSpringSystemSimulator::MassSpringSystemSimulator(void)" (??0MassSpringSystemSimulator@@QAE@XZ)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::testSceneSetup(class MassSpringSystemSimulator * &)" (?testSceneSetup@PublicMassSpringSystemTests@SimulatorTester@@QAEXAAPAVMassSpringSystemSimulator@@@Z)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: void __thiscall MassSpringSystemSimulator::setMass(float)" (?setMass@MassSpringSystemSimulator@@QAEXM@Z)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::testSceneSetup(class MassSpringSystemSimulator * &)" (?testSceneSetup@PublicMassSpringSystemTests@SimulatorTester@@QAEXAAPAVMassSpringSystemSimulator@@@Z)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: void __thiscall MassSpringSystemSimulator::setStiffness(float)" (?setStiffness@MassSpringSystemSimulator@@QAEXM@Z)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::testSceneSetup(class MassSpringSystemSimulator * &)" (?testSceneSetup@PublicMassSpringSystemTests@SimulatorTester@@QAEXAAPAVMassSpringSystemSimulator@@@Z)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: void __thiscall MassSpringSystemSimulator::setDampingFactor(float)" (?setDampingFactor@MassSpringSystemSimulator@@QAEXM@Z)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::testSceneSetup(class MassSpringSystemSimulator * &)" (?testSceneSetup@PublicMassSpringSystemTests@SimulatorTester@@QAEXAAPAVMassSpringSystemSimulator@@@Z)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: int __thiscall MassSpringSystemSimulator::addMassPoint(class GamePhysics::vector3Dim<double>,class GamePhysics::vector3Dim<double>,bool)" (?addMassPoint@MassSpringSystemSimulator@@QAEHV?$vector3Dim@N@GamePhysics@@0_N@Z)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::testSceneSetup(class MassSpringSystemSimulator * &)" (?testSceneSetup@PublicMassSpringSystemTests@SimulatorTester@@QAEXAAPAVMassSpringSystemSimulator@@@Z)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: void __thiscall MassSpringSystemSimulator::addSpring(int,int,float)" (?addSpring@MassSpringSystemSimulator@@QAEXHHM@Z)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::testSceneSetup(class MassSpringSystemSimulator * &)" (?testSceneSetup@PublicMassSpringSystemTests@SimulatorTester@@QAEXAAPAVMassSpringSystemSimulator@@@Z)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: int __thiscall MassSpringSystemSimulator::getNumberOfMassPoints(void)" (?getNumberOfMassPoints@MassSpringSystemSimulator@@QAEHXZ)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::TestNumberofMassPoints(void)" (?TestNumberofMassPoints@PublicMassSpringSystemTests@SimulatorTester@@QAEXXZ)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: int __thiscall MassSpringSystemSimulator::getNumberOfSprings(void)" (?getNumberOfSprings@MassSpringSystemSimulator@@QAEHXZ)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::TestNumberofSprings(void)" (?TestNumberofSprings@PublicMassSpringSystemTests@SimulatorTester@@QAEXXZ)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: class GamePhysics::vector3Dim<double> __thiscall MassSpringSystemSimulator::getPositionOfMassPoint(int)" (?getPositionOfMassPoint@MassSpringSystemSimulator@@QAE?AV?$vector3Dim@N@GamePhysics@@H@Z)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::TestPositionOfMassPointsAfter10TimeStepEuler(void)" (?TestPositionOfMassPointsAfter10TimeStepEuler@PublicMassSpringSystemTests@SimulatorTester@@QAEXXZ)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: class GamePhysics::vector3Dim<double> __thiscall MassSpringSystemSimulator::getVelocityOfMassPoint(int)" (?getVelocityOfMassPoint@MassSpringSystemSimulator@@QAE?AV?$vector3Dim@N@GamePhysics@@H@Z)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::TestVelocityOfMassPointsAfter10TimeStepEuler(void)" (?TestVelocityOfMassPointsAfter10TimeStepEuler@PublicMassSpringSystemTests@SimulatorTester@@QAEXXZ)".
+PublicMassSpringSystemTests.obj : error LNK2019: Verweis auf nicht aufgelöstes externes Symbol ""public: void __thiscall MassSpringSystemSimulator::applyExternalForce(class GamePhysics::vector3Dim<double>)" (?applyExternalForce@MassSpringSystemSimulator@@QAEXV?$vector3Dim@N@GamePhysics@@@Z)" in Funktion ""public: void __thiscall SimulatorTester::PublicMassSpringSystemTests::testSceneSetup(class MassSpringSystemSimulator * &)" (?testSceneSetup@PublicMassSpringSystemTests@SimulatorTester@@QAEXAAPAVMassSpringSystemSimulator@@@Z)".
+D:\physics\gamephysicstemplate\Win32\Debug\SimulationsTester.dll : fatal error LNK1120: 11 nicht aufgelöste Externe

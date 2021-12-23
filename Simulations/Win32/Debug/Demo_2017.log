@@ -1,1 +1,268 @@
-﻿
+﻿FXC : warning X4717: Effects deprecated for D3DCompiler_47
+  
+  compilation object save succeeded; see D:\physics\gamephysicstemplate\Win32\Debug\effect.fxo
+  DiffusionSimulator.cpp
+D:\physics\gamephysicstemplate\Simulations\vectorbase.h(19,1): warning C4005: "NOMINMAX": Makro-Neudefinition
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp : message : Siehe vorherige Definition von "NOMINMAX"
+D:\physics\gamephysicstemplate\Simulations\vectorbase.h(386,43): warning C4244: "return": Konvertierung von "int" in "Real", möglicher Datenverlust
+D:\physics\gamephysicstemplate\Simulations\vectorbase.h(387,52): warning C4244: "return": Konvertierung von "T" in "Real", möglicher Datenverlust
+          with
+          [
+              T=int
+          ]
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(23,1): warning C4005: "M_E": Makro-Neudefinition
+D:\physics\gamephysicstemplate\Simulations\vectorbase.h(62): message : Siehe vorherige Definition von "M_E"
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_math_defines.h(28,1): warning C4005: "M_PI": Makro-Neudefinition
+D:\physics\gamephysicstemplate\Simulations\vectorbase.h(59): message : Siehe vorherige Definition von "M_PI"
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(225,1): warning C4005: "VECTOR_EPSILON": Makro-Neudefinition
+D:\physics\gamephysicstemplate\Simulations\vectorbase.h(52): message : Siehe vorherige Definition von "VECTOR_EPSILON"
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(117,26): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(119,30): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(195,47): warning C4244: "Argument": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(197,48): warning C4244: "Argument": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(198,48): warning C4244: "Argument": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(199,53): warning C4244: "Argument": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(200,53): warning C4244: "Argument": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(235,37): warning C4305: "Initialisierung": Verkürzung von "double" in "Real"
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(241,85): warning C4305: "Argument": Verkürzung von "double" in "T"
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(241,55): warning C4244: "Argument": Konvertierung von "Real" in "int", möglicher Datenverlust
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(293,54): warning C4305: "Argument": Verkürzung von "double" in "Scalar"
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(669,41): warning C4244: "Argument": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(641): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "bool SparsePCGSolver<Real>::solve(const SparseMatrix<float> &,const std::vector<Real,std::allocator<Real>> &,std::vector<Real,std::allocator<Real>> &,T &,int &,int)"
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(247): message : Siehe Verweis auf die gerade kompilierte Instanziierung "bool SparsePCGSolver<Real>::solve(const SparseMatrix<float> &,const std::vector<Real,std::allocator<Real>> &,std::vector<Real,std::allocator<Real>> &,T &,int &,int)" der Funktions-Vorlage.
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(240): message : Siehe Verweis auf die gerade kompilierte Klasse Vorlage-Instanziierung "SparsePCGSolver<Real>".
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(670,41): warning C4244: "Argument": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(672,41): warning C4244: "=": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(680,41): warning C4244: "Argument": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(684,41): warning C4244: "=": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(634,1): warning C4305: "=": Verkürzung von "double" in "T"
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(632): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "void SparsePCGSolver<Real>::set_solver_parameters(T,int,T,T)"
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(241): message : Siehe Verweis auf die gerade kompilierte Instanziierung "void SparsePCGSolver<Real>::set_solver_parameters(T,int,T,T)" der Funktions-Vorlage.
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(628,1): warning C4305: "Argument": Verkürzung von "double" in "T"
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(626): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "SparsePCGSolver<Real>::SparsePCGSolver(void)"
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(240): message : Siehe Verweis auf die gerade kompilierte Instanziierung "SparsePCGSolver<Real>::SparsePCGSolver(void)" der Funktions-Vorlage.
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(730,12): warning C4244: "Argument": Konvertierung von "__int64" in "const unsigned int", möglicher Datenverlust
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(722): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "void SparsePCGSolver<Real>::apply_preconditioner(const std::vector<Real,std::allocator<Real>> &,std::vector<Real,std::allocator<Real>> &,int)"
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(656): message : Siehe Verweis auf die gerade kompilierte Instanziierung "void SparsePCGSolver<Real>::apply_preconditioner(const std::vector<Real,std::allocator<Real>> &,std::vector<Real,std::allocator<Real>> &,int)" der Funktions-Vorlage.
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(730,19): warning C4244: "Argument": Konvertierung von "__int64" in "const unsigned int", möglicher Datenverlust
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(730,42): warning C4244: "Argument": Konvertierung von "__int64" in "const unsigned int", möglicher Datenverlust
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(714,32): warning C4244: "=": Konvertierung von "double" in "_Ty", möglicher Datenverlust
+          with
+          [
+              _Ty=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(702): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "void SparsePCGSolver<Real>::form_preconditioner(const SparseMatrix<float> &,int)"
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(655): message : Siehe Verweis auf die gerade kompilierte Instanziierung "void SparsePCGSolver<Real>::form_preconditioner(const SparseMatrix<float> &,int)" der Funktions-Vorlage.
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(854,22): warning C4244: "return": Konvertierung von "double" in "Scalar", möglicher Datenverlust
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(859): message : Siehe Verweis auf die gerade kompilierte Instanziierung "Scalar GamePhysics::norm<GamePhysics::Real>(const GamePhysics::vector3Dim<Scalar> &)" der Funktions-Vorlage.
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(644,14): warning C4244: "Argument": Konvertierung von "double" in "Scalar", möglicher Datenverlust
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(292): message : Siehe Verweis auf die gerade kompilierte Instanziierung "GamePhysics::vector3Dim<GamePhysics::Real> GamePhysics::operator *<GamePhysics::Real>(double,GamePhysics::vector3Dim<GamePhysics::Real>)" der Funktions-Vorlage.
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(389,14): warning C4244: "Initialisierung": Konvertierung von "__int64" in "unsigned int", möglicher Datenverlust
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(667): message : Siehe Verweis auf die gerade kompilierte Instanziierung "void multiply<T>(const FixedSparseMatrix<T> &,const std::vector<Real,std::allocator<Real>> &,std::vector<Real,std::allocator<Real>> &)" der Funktions-Vorlage.
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(641): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "bool SparsePCGSolver<Real>::solve(const SparseMatrix<float> &,const std::vector<Real,std::allocator<Real>> &,std::vector<Real,std::allocator<Real>> &,T &,int &,int)"
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\DiffusionSimulator.cpp(247): message : Siehe Verweis auf die gerade kompilierte Instanziierung "bool SparsePCGSolver<Real>::solve(const SparseMatrix<float> &,const std::vector<Real,std::allocator<Real>> &,std::vector<Real,std::allocator<Real>> &,T &,int &,int)" der Funktions-Vorlage.
+          with
+          [
+              T=Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\pcgsolver.h(395,4): warning C4244: "=": Konvertierung von "__int64" in "int", möglicher Datenverlust
+  TemplateSimulator.cpp
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(11,1): warning C4005: "NOMINMAX": Makro-Neudefinition
+D:\physics\gamephysicstemplate\Simulations\TemplateSimulator.cpp : message : Siehe vorherige Definition von "NOMINMAX"
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(204,36): warning C4244: "Argument": Konvertierung von "const Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(203): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "DirectX::XMVECTOR GamePhysics::vector3Dim<GamePhysics::Real>::toDirectXVector(void) const"
+D:\physics\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(285): message : Siehe Verweis auf die gerade kompilierte Instanziierung "DirectX::XMVECTOR GamePhysics::vector3Dim<GamePhysics::Real>::toDirectXVector(void) const" der Funktions-Vorlage.
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(859): message : Siehe Verweis auf die gerade kompilierte Klasse Vorlage-Instanziierung "GamePhysics::vector3Dim<GamePhysics::Real>".
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(204,34): warning C4244: "Argument": Konvertierung von "const Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\vectorbase.h(204,32): warning C4244: "Argument": Konvertierung von "const Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=GamePhysics::Real
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(777,79): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(773): message : beim Kompilieren der Klasse Vorlage-Memberfunktion "DirectX::XMMATRIX GamePhysics::matrix4x4<double>::toDirectXMatrix(void)"
+D:\physics\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(380): message : Siehe Verweis auf die gerade kompilierte Instanziierung "DirectX::XMMATRIX GamePhysics::matrix4x4<double>::toDirectXMatrix(void)" der Funktions-Vorlage.
+D:\physics\gamephysicstemplate\Simulations\DrawingUtilitiesClass.h(379): message : Siehe Verweis auf die gerade kompilierte Klasse Vorlage-Instanziierung "GamePhysics::matrix4x4<double>".
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(777,61): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(777,43): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(777,25): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(776,79): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(776,61): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(776,43): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(776,25): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(775,79): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(775,61): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(775,43): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(775,25): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,97): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,79): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,61): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+D:\physics\gamephysicstemplate\Simulations\util\matrixbase.h(774,43): warning C4244: "Argument": Konvertierung von "Scalar" in "float", möglicher Datenverlust
+          with
+          [
+              Scalar=double
+          ]
+  FFmpeg.cpp
+  util.cpp
+  Code wird generiert...
+  Demo_2017.vcxproj -> D:\physics\gamephysicstemplate\Win32\Debug\Simulations.lib
